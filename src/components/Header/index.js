@@ -13,12 +13,15 @@ const navItems = [
   },
 ];
 
-const Header = () => {
+const Header = ({ bgImage }) => {
   
   const router = useRouter();
 
   return (
-    <header className={styles.header}>
+    <header
+        className={styles.header}
+        style={bgImage && { backgroundImage: `url(${bgImage})` }}
+    >
       <div className={styles['header-wrapper']}>
         <Link href='/'>
           <a className={styles['header-logo']}>UP</a>
