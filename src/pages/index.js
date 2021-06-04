@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import { getPostList } from '../utils/posts';
 import PostList from '../components/PostList';
 import { getProductList } from '../utils/products';
+import ProductList from '../components/ProductList';
+
 
 const Home = ({ postList, productList  }) => {
   return (
@@ -14,7 +16,7 @@ const Home = ({ postList, productList  }) => {
       <div className='page-wrapper'>
         <Header></Header>
         <main>
-          <pre>{JSON.stringify(productList, null, 2)}</pre>
+          <ProductList products={productList} />
           <PostList posts={postList} />
         </main>
         <Footer></Footer>

@@ -1,4 +1,4 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient, gql } from 'graphql-request';
 
 const graphcms = new GraphQLClient(
     'https://api-us-east-1.graphcms.com/v2/ckp8ru2hwa3vs01z85bn05tpj/master'
@@ -6,7 +6,7 @@ const graphcms = new GraphQLClient(
 
 export const getProductList = async () => {
     const { products } = await graphcms.request(
-        `{
+        gql`{
             products(orderBy: createdAt_DESC) {
             productName
             price
@@ -20,6 +20,10 @@ export const getProductList = async () => {
                 height
                 width
                 }
+            description
+            descriptionRich {
+                html
+              }
             }
         }`
     );
